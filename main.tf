@@ -114,7 +114,7 @@ resource "aws_launch_template" "custom_lt" {
 }
 
 
-
+ // making the mx and min instances as we needed. 
 resource "aws_autoscaling_group" "custom_asg" {
   vpc_zone_identifier = [aws_subnet.public.id,aws_subnet.new_public.id] 
   desired_capacity    = 1
@@ -123,8 +123,8 @@ resource "aws_autoscaling_group" "custom_asg" {
 
   launch_template {
     id      = aws_launch_template.custom_lt.id
-    version = "$Latest"
-    
+    version = "$Latest" // took from google.
+     
 
   }
 

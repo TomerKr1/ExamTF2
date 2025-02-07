@@ -80,7 +80,7 @@ resource "aws_security_group" "sg" {
  vpc_id = aws_vpc.custom_vpc.id // this VPC screw up all my code. we are connecting the VPC to the SG so we can put later the EC into the right subnet
  //r
  
- 
+  // regular ingress
   ingress {
     from_port   = 22
     to_port     = 22
@@ -110,7 +110,7 @@ resource "aws_security_group" "sg" {
 }
 
 
-// for the LB 2
+// for the LB second subnet.
 resource "aws_subnet" "new_public" {
   vpc_id                  = aws_vpc.custom_vpc.id
   cidr_block              = "10.0.3.0/24"
