@@ -53,6 +53,13 @@ i added a screen shot if you dont want to run this program.
 
 btw it was very chanllging and fun!
 
+Also, if we want to create Lb, we need to create Listene that will forawrd
+each LB has his own SG so 
+
+LB (checking SG ) --> Listener  will "listen" to request from port and make check protocol & port --> Target Group 
+the target group has VPC and he contains the instance we want to forward -- > the EC2 gets the request.
+
+
 
 
 */
