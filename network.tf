@@ -58,7 +58,7 @@ resource "aws_route_table" "public" {
 
   route {
     cidr_block = "0.0.0.0/0"  
-    gateway_id = aws_internet_gateway.custom_gateWay.id
+    gateway_id = aws_internet_gateway.custom_gateWay.id  // the VPC will recognized we trying to get to an ip that outsite our VPC ZONE!
   }
 
   tags = {
