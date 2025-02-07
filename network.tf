@@ -36,6 +36,7 @@ resource "aws_subnet" "private" {
   }
 }
 
+//regular GW.
 
 resource "aws_internet_gateway" "custom_gateWay" {
   vpc_id = aws_vpc.custom_vpc.id
@@ -45,6 +46,15 @@ resource "aws_internet_gateway" "custom_gateWay" {
   }
 }
 
+/*
+it was tricky. 
+when we create a Route time it doesnt mean it belongs to subnet
+in the beggining it just belongs to a VPC ONLY
+with "aws_route_table_association" we are connecting it to the right subnet.
+
+
+
+*/
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.custom_vpc.id
 
@@ -78,7 +88,7 @@ resource "aws_route_table_association" "private_association" {
 
 resource "aws_security_group" "sg" {
  vpc_id = aws_vpc.custom_vpc.id // this VPC screw up all my code. we are connecting the VPC to the SG so we can put later the EC into the right subnet
- //r
+
  
   // regular ingress
   ingress {
