@@ -70,8 +70,8 @@ resource "aws_lb" "custom_lb" {
   name               = "TomerK-lb-tf"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.sg.id]
-  subnets           = [aws_subnet.public.id,aws_subnet.new_public.id] # שימוש בתת-הרשתות הקיימות
+  security_groups    = [aws_security_group.sg.id] // has his own SG
+  subnets           = [aws_subnet.public.id,aws_subnet.new_public.id]  
 
   enable_deletion_protection = false
 
