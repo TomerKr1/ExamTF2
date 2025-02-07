@@ -79,9 +79,17 @@ resource "aws_lb" "custom_lb" {
     Name = var.lb_name
   }
 }
+/*
+creating a Load balancer Target group, the port 80 is the port that the LB will send to the Ec2
+ we will write the VPC so it means we can target evey ec2 instance in our VPC.
 
- //creating a Load balancer Target group, the port 80 is the port that the LB will send to the Ec2
- // we will write the VPC so it means we can target evey ec2 instance in our VPC.
+ i asked my self 'why the hell we should write the Port and the protocol again?! we already did that in the listener?
+
+ so - every target in our group can be connecter to a port and protocol  and the target will direct the request to the right 
+ "path"
+e
+ 
+ */
 resource "aws_lb_target_group" "custom_tg" {
   name     = "TomerK-tg-tf"
   port     = 80
