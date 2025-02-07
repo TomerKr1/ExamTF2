@@ -77,7 +77,7 @@ resource "aws_route_table_association" "private_association" {
 
 
 resource "aws_security_group" "sg" {
- vpc_id = aws_vpc.custom_vpc.id // this VPC fuck all my code. we are connection the VPC to the SG so we can put later the EC into the right subnet
+ vpc_id = aws_vpc.custom_vpc.id // this VPC screw up all my code. we are connecting the VPC to the SG so we can put later the EC into the right subnet
  
  
  
