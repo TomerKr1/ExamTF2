@@ -50,6 +50,12 @@ variable "vm_size" {
   
 }
 
+variable "ami_machine" {
+    type = string
+    description = "this is the AMI of the vm"
+    default = "ami-0ff8a91507f77f867"
+  
+}
 variable "subnet_count" {}
 
 variable "vpc_cidr" {

@@ -10,7 +10,7 @@ create_duration = "30s" # Wait for 30 seconds allow AWS to allocate the IP
 
 
 resource "aws_instance" "vm" {
-  ami           = "ami-0ff8a91507f77f867"  # Amazon Linux 2 AMI in us-east-1
+  ami           = var.ami_machine  # Amazon Linux 2 AMI in us-east-1
   instance_type = var.vm_size
   vpc_security_group_ids = [aws_security_group.sg.id]
   subnet_id  = aws_subnet.public.id # connection to the public subnet we created in task1.
@@ -100,8 +100,8 @@ resource "aws_lb_target_group" "custom_tg" {
 
 
 resource "aws_launch_template" "custom_lt" {
-  name_prefix   = "custom-lt-"
-  image_id      = "ami-0ff8a91507f77f867"
+  
+  image_id      = var.ami_machine
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.sg.id]
 

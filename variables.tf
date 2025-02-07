@@ -56,3 +56,10 @@ type = string
     description = "This is the name of the LB "
     default = "Tomer-lb"
 }
+
+variable "ami_machine" {
+    type = string
+    description = "this is the AMI of the vm"
+    default = "ami-0ff8a91507f77f867"
+  
+}

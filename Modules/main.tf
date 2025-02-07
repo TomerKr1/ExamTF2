@@ -1,6 +1,6 @@
 module "vpc_and_ec2" {
   source = "./vpc_and_ec2_module"
-
+  ami_machine =         "ami-0ff8a91507f77f867"
   region                = "us-east-1"
   vpc_cidr             = "10.0.0.0/16"
   Private_VPC_Name     = "Tomer-VPC"

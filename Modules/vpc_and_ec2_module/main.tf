@@ -8,7 +8,7 @@ resource "time_sleep" "wait_for_ip" {
 }
 
 resource "aws_instance" "vm" {
-  ami                    = "ami-0ff8a91507f77f867"  # Amazon Linux 2 AMI ב-us-east-1
+  ami                    = var.ami_machine  # Amazon Linux 2 AMI us-east-1
   instance_type          = var.vm_size // by the module
   vpc_security_group_ids = [aws_security_group.sg.id]
   subnet_id              = aws_subnet.public.id 
