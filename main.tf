@@ -94,8 +94,8 @@ e
  */
 resource "aws_lb_target_group" "custom_tg" {
   name     = "TomerK-tg-tf"
-  port     = 80
-  protocol = "HTTP"
+  port     = 80  //  The port on which targets receive traffic, unless overridden when registering a specific target. Required when
+  protocol = "HTTP" //  The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS
   vpc_id   = aws_vpc.custom_vpc.id
 
   
