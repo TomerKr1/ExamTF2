@@ -88,7 +88,9 @@ creating a Load balancer Target group, the port 80 is the port that the LB will 
  so - every target in our group can be connecter to a port and protocol  and the target will direct the request to the right 
  "path"
 e
- 
+ The listener moving the Request after checking to the Target, and the target will delever the request to the right instance by the "health"
+ the LB will choose which of the instance we have in the TG we will take!
+
  */
 resource "aws_lb_target_group" "custom_tg" {
   name     = "TomerK-tg-tf"
