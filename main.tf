@@ -4,7 +4,7 @@ provider "aws" {
 
 }
 resource "time_sleep" "wait_for_ip" {
-create_duration = "30s" # Wait for 1 minute to allow AWS to allocate the IP
+create_duration = "30s" # Wait for 30 seconds allow AWS to allocate the IP
 
 }
 
