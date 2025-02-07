@@ -96,6 +96,8 @@ resource "aws_lb_target_group" "custom_tg" {
 
 // now after the Lb moving the request, we will use the listener to move it to the Target group
 // ** its important to notice that we need to first create the TG because the Listener MUST know where he should send the requests
+
+
   resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.custom_lb.arn
   port              = 80
