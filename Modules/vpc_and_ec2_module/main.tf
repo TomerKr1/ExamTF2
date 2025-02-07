@@ -4,12 +4,12 @@ provider "aws" {
 
 
 resource "time_sleep" "wait_for_ip" {
-  create_duration = "1m" 
+  create_duration = "1m"  // we can do also 30s.. 
 }
 
 resource "aws_instance" "vm" {
   ami                    = "ami-0ff8a91507f77f867"  # Amazon Linux 2 AMI ב-us-east-1
-  instance_type          = var.vm_size
+  instance_type          = var.vm_size // by the module
   vpc_security_group_ids = [aws_security_group.sg.id]
   subnet_id              = aws_subnet.public.id 
   associate_public_ip_address = true  
