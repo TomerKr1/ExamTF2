@@ -43,6 +43,22 @@ resource "null_resource" "validate_ip" {
   depends_on = [time_sleep.wait_for_ip, aws_instance.vm]
 }
 
+
+/*
+for creating the LB, we also needed to do 2 subnets, so i created addition public subnet, 
+then we need to create Auto Scalling group with template,
+and then we need to do the "Forwarding by the port" like we did in the UI
+i added a screen shot if you dont want to run this program. 
+
+
+btw it was very chanllging and fun!
+
+
+
+*/
+
+
+
 resource "aws_lb" "custom_lb" {
   name               = "TomerK-lb-tf"
   internal           = false
