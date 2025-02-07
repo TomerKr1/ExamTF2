@@ -10,4 +10,6 @@ i added a screen shot if you dont want to run this program.
 
 btw it was very chanllging and fun!
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/550479a1-9eba-4df3-ab64-aca1bdfdaf2e)
+
+
