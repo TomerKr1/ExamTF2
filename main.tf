@@ -80,7 +80,8 @@ resource "aws_lb" "custom_lb" {
   }
 }
 
- // the forwarding like we did in the UI. (here is much more easy!)
+ //creating a Load balancer Target group, the port 80 is the port that the LB will send to the Ec2
+ // we will write the VPC so it means we can target evey ec2 instance in our VPC.
 resource "aws_lb_target_group" "custom_tg" {
   name     = "TomerK-tg-tf"
   port     = 80
@@ -93,7 +94,8 @@ resource "aws_lb_target_group" "custom_tg" {
   }
 }
 
-#after checking we have to add listner so we can make a role that every time we see http request we will target it to the ec2
+// now after the Lb moving the request, we will use the listener to move it to the Target group
+// ** its important to notice that we need to first create the TG because the Listener MUST know where he should send the requests
   resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.custom_lb.arn
   port              = 80

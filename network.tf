@@ -48,11 +48,9 @@ resource "aws_internet_gateway" "custom_gateWay" {
 
 /*
 it was tricky. 
-when we create a Route time it doesnt mean it belongs to subnet
+when we create a Route table it doesnt mean it belongs to a subnet
 in the beggining it just belongs to a VPC ONLY
 with "aws_route_table_association" we are connecting it to the right subnet.
-
-
 
 */
 resource "aws_route_table" "public" {
@@ -68,6 +66,7 @@ resource "aws_route_table" "public" {
   }
 }
 
+//the connection with subnet the the route id
 resource "aws_route_table_association" "public_association" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
