@@ -110,7 +110,7 @@ resource "aws_security_group" "sg" {
 }
 
 
-// for the LB
+// for the LB 2
 resource "aws_subnet" "new_public" {
   vpc_id                  = aws_vpc.custom_vpc.id
   cidr_block              = "10.0.3.0/24"
