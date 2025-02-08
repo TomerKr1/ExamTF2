@@ -19,6 +19,10 @@ resource "aws_instance" "vm" {
   tags = {
     Name = var.machine_name
   }
+  provisioner "local-exec" {
+    command = "echo 'Created VM Success! ${var.ami_machine} '"
+  }
+
 }
 
 resource "null_resource" "validate_ip" {
@@ -78,6 +82,9 @@ resource "aws_lb" "custom_lb" {
   tags = {
     Name = var.lb_name
   }
+    lifecycle {
+    ignore_changes = [security_groups]  // ignoring changes of SG.
+  }
 }
 /*
 creating a Load balancer Target group, the port 80 is the port that the LB will send to the Ec2
@@ -123,7 +130,7 @@ resource "aws_lb_target_group" "custom_tg" {
 resource "aws_launch_template" "custom_lt" {
   
   image_id      = var.ami_machine
-  instance_type = "t2.micro"
+  instance_type = var.vm_size
   vpc_security_group_ids = [aws_security_group.sg.id]
 
   tag_specifications {
@@ -151,8 +158,11 @@ resource "aws_autoscaling_group" "custom_asg" {
 
   target_group_arns = [aws_lb_target_group.custom_tg.arn]
   
+  /*
+  we want to make sure that we are creating the LB and the Listener before the ASG
+  */
    depends_on = [
-    aws_lb.custom_lb,
+    aws_lb.custom_lb,  
     aws_lb_listener.http
   ]
 }
