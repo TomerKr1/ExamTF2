@@ -1,8 +1,10 @@
+
 provider "aws" {
 
   region = var.region
 
 }
+/* ------------------------------ Task 1 , 2, ------------------------------------*/
 resource "time_sleep" "wait_for_ip" {
 create_duration = "30s" # Wait for 30 seconds allow AWS to allocate the IP
 
