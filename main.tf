@@ -155,7 +155,7 @@ resource "aws_autoscaling_group" "custom_asg" {
 
   launch_template {
     id      = aws_launch_template.custom_lt.id
-    version = "$Latest" // took from google.
+    version = "$Latest" 
      
 
   }
