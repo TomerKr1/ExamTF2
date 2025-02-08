@@ -99,6 +99,7 @@ e
  the LB will choose which of the instance we have in the TG we will take!
 
  */
+
 resource "aws_lb_target_group" "custom_tg" {
   name     = "TomerK-tg-tf"
   port     = 80  //  The port on which targets receive traffic, unless overridden when registering a specific target. Required when
@@ -144,7 +145,7 @@ resource "aws_launch_template" "custom_lt" {
 
  // making the mx and min instances as we needed. 
 resource "aws_autoscaling_group" "custom_asg" {
-  vpc_zone_identifier = [aws_subnet.public.id,aws_subnet.new_public.id] 
+  vpc_zone_identifier = [aws_subnet.public.id,aws_subnet.new_public.id]  // where the ASG will put the instances.
   desired_capacity    = 1
   min_size           = 1
   max_size           = 3
