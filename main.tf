@@ -48,6 +48,12 @@ resource "null_resource" "validate_ip" {
 }
 
 
+
+
+
+/*----------------------------- Task Task 4: Deploy an Application Load Balancer with Auto Scaling ------------------------- */
+
+
 /*
 for creating the LB, we also needed to do 2 subnets, so i created addition public subnet, 
 then we need to create Auto Scalling group with template,
