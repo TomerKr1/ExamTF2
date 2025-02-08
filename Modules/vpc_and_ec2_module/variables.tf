@@ -66,6 +66,6 @@ variable "vpc_cidr" {
 
 variable "assign_public_ip" {
   type        = bool
-  description = "Whether to assign a public IP to instances"
+  description = "should we assign a public IP to instances"
   default     = true
 }
