@@ -128,6 +128,9 @@ resource "aws_lb_target_group" "custom_tg" {
 }
 
 
+/*
+this is the template of the ec2 we will create
+*/
 resource "aws_launch_template" "custom_lt" {
   
   image_id      = var.ami_machine
@@ -157,7 +160,7 @@ resource "aws_autoscaling_group" "custom_asg" {
 
   }
 
-  target_group_arns = [aws_lb_target_group.custom_tg.arn]
+  target_group_arns = [aws_lb_target_group.custom_tg.arn] //each instance that we create, will be connecting to the Target Group
   
   /*
   we want to make sure that we are creating the LB and the Listener before the ASG
