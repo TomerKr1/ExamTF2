@@ -78,7 +78,7 @@ resource "aws_route_table_association" "public_assoc" {
 }
 
 
-## Should i create NAT GATEWAY? we cant create NAT for this.
+## Should i create NAT GATEWAY??
 resource "aws_route_table_association" "private_association" {
   subnet_id      = aws_subnet.private.id
   route_table_id = aws_route_table.public.id
