@@ -1,6 +1,9 @@
-in this section I the Terraform exam.
+in this section I did Terraform exam.
 
-you will see in the end a lot of outputs as needed in those tasks. 
+in the main Folder you can see Task 1, 2 and the 4
+
+
+
 
 
 for creating the LB, we also needed to do 2 subnets, so i created addition public subnet, 
