@@ -133,6 +133,9 @@ resource "aws_lb_target_group" "custom_tg" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.custom_tg.arn
   }
+  depends_on = [
+    aws_lb_target_group.custom_tg
+    ]
 }
 
 
